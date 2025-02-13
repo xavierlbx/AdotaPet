@@ -1,7 +1,9 @@
 import express, { Response } from "express";
+import router from "./routes/index.js";
 
 const app = express();
 app.use(express.json());
+router(app)
 
 app.get("/", (_, res:Response) => {
   res.send("Bem vindo ao curso de TypeScript!");
@@ -23,7 +25,7 @@ function criaPet(
   };
 }
 
-let id = "0";
+let id = 0;
 
 function geraId() {
   id = id + 1;
